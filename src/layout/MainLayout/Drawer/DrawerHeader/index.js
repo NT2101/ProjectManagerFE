@@ -7,7 +7,8 @@ import { Stack, Chip } from '@mui/material';
 // project import
 import DrawerHeaderStyled from './DrawerHeaderStyled';
 import Logo from 'components/Logo';
-
+import LogoUTT from '../../../../assets/images/logo-utt-border.png';
+import './style.css';
 // ==============================|| DRAWER HEADER ||============================== //
 
 const DrawerHeader = ({ open }) => {
@@ -18,6 +19,9 @@ const DrawerHeader = ({ open }) => {
     <DrawerHeaderStyled theme={theme} open={open}>
       <Stack direction="row" spacing={1} alignItems="center">
         <Logo />
+        <div className='LogoSystem'>
+          <img src={LogoUTT} alt="Mantis" width="50px" /> <span className='ProjectName'>TMS</span>
+        </div>
         <Chip
           label={process.env.REACT_APP_VERSION}
           size="small"

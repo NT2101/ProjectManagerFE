@@ -3,29 +3,27 @@ import { axiosClient } from './axiosClient'
 
 export const accountApi = {
     getAll() {
-        const url = '/posts';
+        const url = '/Accounts/';
         var result = axiosClient.get(url);
         return result;
     },
-    get(AccountName, Password) {
-        const url = `/account?AccountName=${AccountName}&Password=${Password}`;
+    getAccountByName(Name, Password, TypeAccount) {
+        const url = `/Accounts/Name=${Name}&Password=${Password}&TypeAccount=${TypeAccount}`;
         var result = axiosClient.get(url);
         return result;
     },
-    add(data) {
+    updateAccount(data) {
         var newData = {
-            AccountName: data.email,
-            Password: data.password,
-            CreatedDate: '1/1/2000',
-            Status: 1,
-            ID: -1
+            AccountName: data.accountName,
+            Name: data.userName,
+            Status: 2,
+            Password: data.newPassword,
+            ImageUrl: '',
+            EmailAddress: data.email,
+            PhoneNumber: data.phoneNumber.replace("-", "").replace("-", ""),
+            TypeAccount: 1
         };
-        const url = `/account/`;
+        const url = '/Accounts';
         return axiosClient.post(url, newData);
-    },
-    getByID(ID) {
-        const url = `/account?ID=${ID}`;
-        var result = axiosClient.get(url);
-        return result;
     }
 }

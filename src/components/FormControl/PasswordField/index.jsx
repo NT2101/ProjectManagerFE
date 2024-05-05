@@ -18,7 +18,7 @@ function PasswordField({ form, name, label }) {
                 control={form.control}
                 name={name}
                 render={({
-                    field: { onChange, onBlur, name, ref },
+                    field: { onChange, onBlur, name, value, ref },
                     fieldState: { invalid, isTouched, isDirty, error },
                     formState,
                 }) => (
@@ -32,6 +32,7 @@ function PasswordField({ form, name, label }) {
                         margin='normal'
                         type='password'
                         error={!!hasError}
+                        value={value}
                         helperText={errors[name]?.message}
                     />
                 )}

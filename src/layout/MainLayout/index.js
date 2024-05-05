@@ -22,8 +22,7 @@ const MainLayout = () => {
   const matchDownLG = useMediaQuery(theme.breakpoints.down('lg'));
   const dispatch = useDispatch();
 
-  const { drawerOpen } = useSelector((state) => state.menu);
-
+  const { drawerOpen } = useSelector((state) => state.menu || {});
   // drawer toggler
   const [open, setOpen] = useState(drawerOpen);
   const handleDrawerToggle = () => {

@@ -115,7 +115,7 @@ const Notification = () => {
             >
               <ClickAwayListener onClickAway={handleClose}>
                 <MainCard
-                  title="Notification"
+                  title="Thông báo"
                   elevation={0}
                   border={false}
                   content={false}

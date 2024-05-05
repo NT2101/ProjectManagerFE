@@ -7,7 +7,7 @@ InputField.propTypes = {
 
 };
 
-function InputField({ form, name, label }) {
+function InputField({ form, name, label, disabled, readonly }) {
     const { formState } = form;
     const { errors } = formState;
     const hasError = errors[name];
@@ -18,7 +18,7 @@ function InputField({ form, name, label }) {
                 control={form.control}
                 name={name}
                 render={({
-                    field: { onChange, onBlur, name },
+                    field: { onChange, onBlur, name, value },
                 }) => (
                     <TextField
                         onBlur={onBlur} // notify when input is touched
@@ -30,6 +30,11 @@ function InputField({ form, name, label }) {
                         error={!!hasError}
                         helperText={errors[name]?.message}
                         margin='normal'
+                        value={value}
+                        disabled={disabled}
+                        InputProps={{
+                            readOnly: readonly // Sử dụng prop readonly được truyền vào từ component gốc
+                        }}
                     />
                 )}
             />

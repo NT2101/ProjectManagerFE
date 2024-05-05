@@ -17,7 +17,7 @@ const NavItem = ({ item, level }) => {
   const dispatch = useDispatch();
   const { pathname } = useLocation();
 
-  const { drawerOpen, openItem } = useSelector((state) => state.menu);
+  const { drawerOpen, openItem } = useSelector((state) => state.menu || {});
 
   let itemTarget = '_self';
   if (item.target) {
@@ -102,11 +102,11 @@ const NavItem = ({ item, level }) => {
             }),
             ...(!drawerOpen &&
               isSelected && {
-                bgcolor: 'primary.lighter',
-                '&:hover': {
-                  bgcolor: 'primary.lighter'
-                }
-              })
+              bgcolor: 'primary.lighter',
+              '&:hover': {
+                bgcolor: 'primary.lighter'
+              }
+            })
           }}
         >
           {itemIcon}

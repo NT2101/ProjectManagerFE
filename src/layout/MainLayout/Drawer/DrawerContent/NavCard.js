@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 // material-ui
 import { Button, CardMedia, Link, Stack, Typography } from '@mui/material';
 

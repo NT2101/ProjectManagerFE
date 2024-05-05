@@ -2,11 +2,11 @@
 import axios from 'axios'
 
 export const axiosClient = axios.create({
-    baseURL: 'https://jsonplaceholder.typicode.com',
+    baseURL: 'https://localhost:5001/api',
     headers: {
-        'Content-Type': 'application/json'
+        'Content-Type': 'application/json',
         // 'Access-Control-Allow-Origin': '*',
-        // 'Content-Type': 'application/x-www-form-urlencoded',
+        // // 'Content-Type': 'application/x-www-form-urlencoded',
         // "Access-Control-Allow-Methods": "DELETE, POST, GET, OPTIONS",
         // "Access-Control-Allow-Headers": "Content-Type, Authorization, X-Requested-With"
     },
@@ -30,7 +30,7 @@ axios.interceptors.request.use(function (config) {
 axios.interceptors.response.use(function (response) {
     // Any status code that lie within the range of 2xx cause this function to trigger
     // Do something with response data
-    return response.data;
+    return response;
 }, function (error) {
     // Any status codes that falls outside the range of 2xx cause this function to trigger
     // Do something with response error

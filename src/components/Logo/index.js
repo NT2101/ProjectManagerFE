@@ -13,7 +13,7 @@ import { activeItem } from 'store/reducers/menu';
 // ==============================|| MAIN LOGO ||============================== //
 
 const LogoSection = ({ sx, to }) => {
-  const { defaultId } = useSelector((state) => state.menu);
+  const { defaultId } = useSelector((state) => state.menu || {});
   const dispatch = useDispatch();
   return (
     <ButtonBase

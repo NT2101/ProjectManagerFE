@@ -6,7 +6,6 @@ import { BrowserRouter } from 'react-router-dom';
 import 'simplebar/src/simplebar.css';
 
 // third-party
-import { Provider as ReduxProvider } from 'react-redux';
 
 // apex-chart
 import 'assets/third-party/apex-chart.css';
@@ -15,9 +14,11 @@ import 'assets/third-party/apex-chart.css';
 import App from './App';
 import { store } from 'store';
 import reportWebVitals from './reportWebVitals';
+// import store from './app/store';
 
 // Snack bar notification
 import { SnackbarProvider } from 'notistack';
+import { Provider } from 'react-redux'
 
 
 // ==============================|| MAIN - REACT DOM RENDER  ||============================== //
@@ -26,13 +27,13 @@ const container = document.getElementById('root');
 const root = createRoot(container); // createRoot(container!) if you use TypeScript
 root.render(
   <StrictMode>
-    <ReduxProvider store={store}>
+    <Provider store={store}>
       <BrowserRouter basename="/free">
         <SnackbarProvider maxSnack={3} anchorOrigin={{ horizontal: 'right', vertical: 'top' }}>
           <App />
         </SnackbarProvider>
       </BrowserRouter>
-    </ReduxProvider>
+    </Provider>
   </StrictMode>
 );
 

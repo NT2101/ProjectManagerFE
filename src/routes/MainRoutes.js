@@ -10,8 +10,17 @@ const DashboardDefault = Loadable(lazy(() => import('pages/dashboard')));
 // render - sample page
 const SamplePage = Loadable(lazy(() => import('pages/extra-pages/SamplePage')));
 
+// render - change account
+const ChangeAccount = Loadable(lazy(() => import('pages/changeAccount/index')));
+
+// render - change account
+const RegisterTopic = Loadable(lazy(() => import('pages/topics/index')));
+
+// render - documentation
+const Documentation = Loadable(lazy(() => import('pages/documentation/index')));
+
 // render - login demo
-const LoginPageDemo = Loadable(lazy(() => import('pages/authentication/LoginForm/index')));
+// const LoginPageDemo = Loadable(lazy(() => import('pages/authentication/LoginForm/index')));
 
 // render - utilities
 const Typography = Loadable(lazy(() => import('pages/components-overview/Typography')));
@@ -44,13 +53,25 @@ const MainRoutes = {
       ]
     },
     {
+      path: 'change-account',
+      element: <ChangeAccount />
+    },
+    {
+      path: 'documentation',
+      element: <Documentation />
+    },
+    {
+      path: 'register-topic',
+      element: <RegisterTopic />
+    },
+    {
       path: 'sample-page',
       element: <SamplePage />
     },
-    {
-      path: 'login-page',
-      element: <LoginPageDemo />
-    },
+    // {
+    //   path: 'login-page',
+    //   element: <LoginPageDemo />
+    // },
     {
       path: 'shadow',
       element: <Shadow />

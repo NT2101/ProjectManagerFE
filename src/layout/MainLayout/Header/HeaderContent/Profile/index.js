@@ -1,5 +1,8 @@
+/* eslint-disable prettier/prettier */
+/* eslint-disable no-unused-vars */
 import PropTypes from 'prop-types';
 import { useRef, useState } from 'react';
+// Login Info
 
 // material-ui
 import { useTheme } from '@mui/material/styles';
@@ -28,6 +31,7 @@ import SettingTab from './SettingTab';
 // assets
 import avatar1 from 'assets/images/users/avatar-1.png';
 import { LogoutOutlined, SettingOutlined, UserOutlined } from '@ant-design/icons';
+import { useDispatch, useSelector } from '../../../../../../node_modules/react-redux/dist/react-redux';
 
 // tab panel wrapper
 function TabPanel({ children, value, index, ...other }) {
@@ -54,6 +58,8 @@ function a11yProps(index) {
 // ==============================|| HEADER CONTENT - PROFILE ||============================== //
 
 const Profile = () => {
+  const dispatch = useDispatch();
+  const loggedInUser = useSelector(state => state.account.current);
   const theme = useTheme();
 
   const handleLogout = async () => {
@@ -96,9 +102,14 @@ const Profile = () => {
         aria-haspopup="true"
         onClick={handleToggle}
       >
+
         <Stack direction="row" spacing={2} alignItems="center" sx={{ p: 0.5 }}>
           <Avatar alt="profile user" src={avatar1} sx={{ width: 32, height: 32 }} />
-          <Typography variant="subtitle1">John Doe</Typography>
+          {loggedInUser !== null ? (
+            <Typography variant="subtitle1">{loggedInUser.name}</Typography>
+          ) : (
+            <Typography variant="subtitle1">John</Typography>
+          )}
         </Stack>
       </ButtonBase>
       <Popper
@@ -200,7 +211,7 @@ const Profile = () => {
           </Transitions>
         )}
       </Popper>
-    </Box>
+    </Box >
   );
 };
 

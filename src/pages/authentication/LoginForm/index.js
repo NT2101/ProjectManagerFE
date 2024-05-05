@@ -21,7 +21,6 @@ function LoginForm(props) {
   }
 
   const onSubmit = async (values) => {
-    console.log(values);
     showNotification('Xin chào, ' + values.email, "success");
   };
 

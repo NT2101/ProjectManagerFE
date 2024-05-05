@@ -10,12 +10,12 @@ const icons = {
 
 const dashboard = {
   id: 'group-dashboard',
-  title: 'Navigation',
+  title: 'Chức năng',
   type: 'group',
   children: [
     {
       id: 'dashboard',
-      title: 'Dashboard',
+      title: 'Trang chủ',
       type: 'item',
       url: '/dashboard/default',
       icon: icons.DashboardOutlined,
